@@ -47,8 +47,8 @@ class Solution:
         # 空值处理
         if nl < 1:
             return 0
-        
-        # 最后的子串 如 hello lo ,索引 一定是 5-2 == 3 
+
+        # 最后的子串 如 hello lo ,索引 一定是 5-2 == 3
         # 但是 range 产生的结果是0-n。所以+1
         for i in range(hl-nl+1):
             # 分段对比
