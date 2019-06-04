@@ -62,25 +62,10 @@
 
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        # 数组长度
-        l = len(nums)
-        # 最后位置
-        last = l - 1
-        for i in range(l-1, -1, -1): 
-            if nums[i] == val:
-                last = i-1
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            if nums[left] == val:
+                nums[left], nums[right], right = nums[right], nums[left], right - 1
             else:
-                break
-
-        for i in range(l):
-            if last < i:
-                break
-            while True:
-                if last < i:
-                    break
-                if nums[i] == val:
-                    nums[i], nums[last] = nums[last], nums[i]
-                    last = last-1
-                else:
-                    break
-        return last + 1
+                left +=1
+        return left
