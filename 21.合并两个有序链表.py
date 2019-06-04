@@ -32,13 +32,15 @@
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         # 确定头
+        if not (l1 & & l2):
+            return l1
         head = l1
         oth = l2
         if l2.val < l1.val:
             head = l2
             oth = l1
         n1 = head.next
-        now = n1
+        now = head
         n2 = oth
         while True:
             if n1 and n2:
@@ -56,5 +58,5 @@ class Solution:
                 n2 = n2.next
             else:
                 break
-            now = now.next 
+            now = now.next
         return head
