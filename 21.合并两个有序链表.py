@@ -31,17 +31,18 @@
 
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        # 确定头
+       
         if not l1:
             return l2
         elif not l2:
             return l1
-
+        # 确定头
         head = l1
         oth = l2
         if l2.val < l1.val:
             head = l2
             oth = l1
+        # 确定排查
         n1 = head.next
         now = head
         n2 = oth
