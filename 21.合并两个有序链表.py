@@ -32,7 +32,7 @@
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         # 确定头
-        if not (l1 & & l2):
+        if not (l1 and l2):
             return l1
         head = l1
         oth = l2
