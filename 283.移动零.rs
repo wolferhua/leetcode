@@ -36,7 +36,7 @@ impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
         let mut j = 0; // 移动数据的位置记录
         for i in (0..nums.len()){ 
-            if mums[i]!=0{ // 判断是否是零，如果不是零跳过
+            if nums[i]!=0{ // 判断是否是零，如果不是零跳过
                 nums[j] = nums[i]; // 将非 0 数据移动到前边去
                 if i != j { // i!=j 说明不是当前位置，将当前位置设置为零
                     nums[i] = 0;
