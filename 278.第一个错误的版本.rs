@@ -58,28 +58,19 @@
 
 impl Solution {
     pub fn first_bad_version(&self, n: i32) -> i32 {
-        // 第一个错误版本
-		let mut left:i32 = 1 as i32;
-        // 
-        let mut right:i32  = n ;
-
-        //  1 2 3 4 5
-        // mid = 3  
-        // 如果三错误了，那么错误版本就在 12 里边。
-        while left < right{
-            // 先看中间是否异常
-            let mid = (left+right)/2;
-            let bad = self.isBadVersion(mid as i32);
-            if bad {
-                // 中间版本是错误版本，说明错误还在前面
-                right = mid;
-            }else{
-                left = mid;
+		let mut lo = 1;
+        let mut hi = n;
+        while lo < hi {
+            let mid = lo + (hi - lo) / 2;
+            if self.isBadVersion(mid) {
+                hi = mid;
+            } else {
+                lo = mid + 1;
             }
         }
-
-       return left as i32;
+        lo
     }
-}
+} 
+
 // @lc code=end
 
