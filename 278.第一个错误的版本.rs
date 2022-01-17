@@ -58,14 +58,14 @@
 
 impl Solution {
     pub fn first_bad_version(&self, n: i32) -> i32 {
-		let mut lo = 1;
-        let mut hi = n;
+		let mut lo = 1; // 最低版本
+        let mut hi = n; // 最高版本
         while lo < hi {
-            let mid = lo + (hi - lo) / 2;
+            let mid = lo + (hi - lo) / 2; // 中数
             if self.isBadVersion(mid) {
                 hi = mid;
             } else {
-                lo = mid + 1;
+                lo = mid + 1; // 向后一位
             }
         }
         lo
